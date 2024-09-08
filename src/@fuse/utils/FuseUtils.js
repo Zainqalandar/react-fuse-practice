@@ -190,7 +190,6 @@ class FuseUtils {
     for (let i = 0; i < navigationItems.length; i += 1) {
       const navItem = navigationItems[i];
 
-      if (navItem.type === 'item') {
         flatNavigation.push({
           id: navItem.id,
           title: navItem.title,
@@ -199,7 +198,16 @@ class FuseUtils {
           url: navItem.url,
           auth: navItem.auth || null,
         });
-      }
+      // if (navItem.type === 'item') {
+      //   flatNavigation.push({
+      //     id: navItem.id,
+      //     title: navItem.title,
+      //     type: navItem.type,
+      //     icon: navItem.icon || false,
+      //     url: navItem.url,
+      //     auth: navItem.auth || null,
+      //   });
+      // }
 
       if (navItem.type === 'collapse' || navItem.type === 'group') {
         if (navItem.children) {

@@ -15,19 +15,20 @@ const StyledContent = styled(FuseScrollbars)(({theme}) => ({
     backgroundRepeat: 'no-repeat',
     backgroundSize: '100% 40px, 100% 10px',
     backgroundAttachment: 'local, scroll',
+    height: '100%', // Ensure it takes full height
 }));
 
 function LeftSideLayout() {
     return (
         <Hidden lgDown>
-            <aside className="hidden md:block w-[230px] min-h-screen border-1">
-                <div className="flex flex-row items-center shrink-0 h-46 md:h-72 px-20">
+            <aside className="hidden md:block w-[230px] h-screen border-1 overflow-auto">
+                {/* <div className="flex flex-row items-center shrink-0 h-46 md:h-72 px-20">
                     <div className="flex flex-1 mx-4">
                         <Logo/>
-                    </div>
+                    </div> */}
 
                     {/*<NavbarToggleButton className="w-40 h-40 p-0"/>*/}
-                </div>
+                {/* </div> */}
 
                 <StyledContent
                     className="flex flex-1 flex-col min-h-0"

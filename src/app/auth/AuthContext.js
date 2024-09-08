@@ -17,7 +17,6 @@ function AuthProvider({ children }) {
   useEffect(() => {
     jwtService.on('onAutoLogin', () => {
       jwtService.getCurrentUserData().then((user) => {
-        console.log('onAutoLogin : userDtail', user)
         success(user);
       });
       /**

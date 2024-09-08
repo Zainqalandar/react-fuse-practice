@@ -16,6 +16,7 @@ import HeaderFullScreenToggle from 'app/theme-layouts/shared-components/FullScre
 import LanguageSwitcher from 'app/theme-layouts/shared-components/LanguageSwitcher';
 import FuseSettingsViewerDialog from 'app/theme-layouts/shared-components/FuseSettingsViewerDialog';
 import SettingsPanel from 'app/theme-layouts/shared-components/SettingsPanel';
+import NavigationSearch from 'app/theme-layouts/shared-components/NavigationSearch';
 
 function ToolbarLayout(props) {
 	const config = useSelector(selectFuseCurrentLayoutConfig);
@@ -47,6 +48,7 @@ function ToolbarLayout(props) {
                         <SettingsPanel />
                         <FuseSettingsViewerDialog />
 						<LanguageSwitcher />
+						<NavigationSearch />
 						<HeaderFullScreenToggle />
 						<NotificationPanelToggleButton />
 						<UserMenu />
