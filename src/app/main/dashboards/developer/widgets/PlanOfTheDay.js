@@ -2,8 +2,8 @@ import { memo } from 'react';
 
 function PlanOfTheDay() {
     return (
-        <div className="rounded w-full bg-white overflow-auto p-2 sm:p-6">
-            <div className="flex justify-between items-center mb-6 gap-2 flex-wrap">
+        <div className="rounded w-full  overflow-auto p-2 sm:p-6">
+            {/* <div className="flex justify-between items-center mb-6 gap-2 flex-wrap">
                 <div className="flex items-center gap-2">
                     <div className="p-3 shadow-box background-btn-color rounded">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
@@ -112,7 +112,7 @@ function PlanOfTheDay() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
             <table>
                 <thead>
                 <tr className="text-color border-b flex items-center">

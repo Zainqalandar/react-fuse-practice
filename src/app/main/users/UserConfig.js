@@ -1,21 +1,37 @@
 import { lazy } from 'react';
 import { authRoles } from '../../auth';
 
-const Createuser = lazy(() => import('./index'));
+const Users = lazy(() => import('./index'));
 
-const taskLogsConfig = {
+const userConfig = {
     settings: {
         layout: {
-            config: {},
+            config: {
+                navbar: {
+                    display: false,
+                },
+                toolbar: {
+                    display: false,
+                },
+                footer: {
+                    display: false,
+                },
+                leftSidePanel: {
+                    display: false,
+                },
+                rightSidePanel: {
+                    display: false,
+                },
+            },
         },
     },
     auth: authRoles.userDeveloper,
     routes: [
         {
             path: 'users',
-            element: <Createuser />,
+            element: <Users />,
         },
     ],
 };
 
-export default taskLogsConfig;
+export default userConfig;

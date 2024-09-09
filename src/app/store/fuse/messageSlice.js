@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-
 const initialState = {
   state: null,
   options: {
@@ -9,7 +8,7 @@ const initialState = {
     },
     autoHideDuration: 3000,
     message: 'Hi',
-    variant: null,
+    variant: 'info',
   },
 };
 const messageSlice = createSlice({

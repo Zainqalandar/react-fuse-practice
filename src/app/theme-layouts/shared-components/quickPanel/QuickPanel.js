@@ -30,6 +30,7 @@ function QuickPanel(props) {
 
   const data = useSelector(selectQuickPanelData);
   const state = useSelector(selectQuickPanelState);
+  // const state = useSelector(selectQuickPanelState) || true;
 
   const [checked, setChecked] = useState('notifications');
 

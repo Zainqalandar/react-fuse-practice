@@ -23,6 +23,7 @@ import Button from '@mui/material/Button';
 import useDispatchSnackbar from 'src/app/main/hooks/useDispatchSnackbar';
 import useSnackbarMessage from 'src/app/main/hooks/useSnackbarMessage';
 import history from '@history';
+import HistoryItems from './widgets/HistoryItems';
 
 const Root = styled(FusePageSimple)(({ theme }) => ({
     '& .FusePageSimple-header': {
@@ -57,7 +58,7 @@ const DetailItem = ({ title, value }) => {
         </>
     );
 };
-function AdminDashboard(props) {
+function DeveloperDashboard(props) {
     const dispatch = useDispatch();
     const user = useSelector(selectUser);
     const [open, setOpen] = useState(false);
@@ -175,9 +176,10 @@ function AdminDashboard(props) {
                             </Button>
                         </DialogActions>
                     </Dialog>
+                    <HistoryItems />
                 </div>
             }
         />
     );
 }
-export default withReducer('adminDashboard', reducer)(AdminDashboard);
+export default withReducer('adminDashboard', reducer)(DeveloperDashboard);

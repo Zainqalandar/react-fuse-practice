@@ -5,8 +5,11 @@ import { showMessage } from 'app/store/fuse/messageSlice';
 import Chat from 'app/theme-layouts/shared-components/chatPanel/Chat';
 import ChatPanel from 'app/theme-layouts/shared-components/chatPanel/ChatPanel';
 import ContactList from 'app/theme-layouts/shared-components/chatPanel/ContactList';
+import QuickPanel from 'app/theme-layouts/shared-components/quickPanel/QuickPanel';
 import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
+import { toggleQuickPanel } from 'app/theme-layouts/shared-components/quickPanel/store/stateSlice';
+import PlanOfTheDay from '../dashboards/developer/widgets/PlanOfTheDay';
 const TaskLogs = () => {
 
 
@@ -21,57 +24,6 @@ const TaskLogs = () => {
 
     const handleGetUsers =async () => {
 
-        // const message = 'This is a success message'
-
-        const dummyData = {
-            message: "This is a dummy message for testing purposes.",
-            variant: "info", // Can be "success", "warning", "error", or "info"
-            autoHideDuration: 3000, // Duration in milliseconds
-            anchorOrigin: {
-              vertical: 'bottom',
-              horizontal: 'left',
-            },
-          };
-
-        const errorData = {
-            message: "An error occurred while processing your request.",
-            variant: "error",
-            autoHideDuration: 5000,
-            anchorOrigin: {
-                vertical: 'top',
-                horizontal: 'right',
-            },
-        };
-    
-        const alertData = {
-            message: "This is an alert message. Please take action.",
-            variant: "warning",
-            autoHideDuration: 4000,
-            anchorOrigin: {
-                vertical: 'top',
-                horizontal: 'center',
-            },
-        };
-    
-        const successData = {
-            message: "Operation completed successfully.",
-            variant: "success",
-            autoHideDuration: 3000,
-            anchorOrigin: {
-                vertical: 'bottom',
-                horizontal: 'left',
-            },
-        };
-    
-        const signInData = {
-            message: "You have successfully signed in.",
-            variant: "success",
-            autoHideDuration: 3000,
-            anchorOrigin: {
-                vertical: 'bottom',
-                horizontal: 'right',
-            },
-        };
     
         const signOutData = {
             message: "You have successfully signed out.",
@@ -100,6 +52,11 @@ const TaskLogs = () => {
         // }
     }
 
+    const toggleQuick = () => {
+        dispatch(toggleQuickPanel())
+        console.log('toggleQuickPanel')
+    }
+
 
 
 
@@ -111,6 +68,11 @@ const TaskLogs = () => {
             {/* <TitleWrapper title=' There are not title ' className='border-1 border-red-800 w-[900px]' >
                 <WYSIWYGEditor />
                 </TitleWrapper> */}
+
+                <QuickPanel />
+                <Button onClick={toggleQuick}>Toggle QuickPanel</Button>
+
+                <PlanOfTheDay />
 
         </>
     );

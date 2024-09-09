@@ -14,6 +14,7 @@ import FortogConfig from '../main/forgot-password/ForgotPasswordConfig';
 import ResetPasswordConfig from '../main/reset-password/resetPasswordConfig';
 import Teams from '../main/teams';
 import TeamOne from '../main/teams/team-one';
+import Reports from '../main/reports';
 
 const routeConfigs = [
     SignInConfig,
@@ -47,6 +48,12 @@ const routes = [
     {
         path: '/users',
         element: <Users />,
+        // rethinkComment:
+        auth: settingsConfig.defaultAuth,
+    },
+    {
+        path: '/Reports',
+        element: <Reports />,
         // rethinkComment:
         auth: settingsConfig.defaultAuth,
     },

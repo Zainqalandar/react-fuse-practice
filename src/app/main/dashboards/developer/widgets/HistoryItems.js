@@ -8,8 +8,6 @@ function HistoryItems() {
            <CheckinItem />
            <HistoryItem />
            <HistoryItem />
-           <HistoryItem />
-           <HistoryItem />
         </div>
     );
 }
