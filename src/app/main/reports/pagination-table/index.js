@@ -81,7 +81,7 @@ export default function DataTable() {
 				columns={columns}
 				initialState={{ pagination: { paginationModel } }}
 				pageSizeOptions={[5, 10]}
-				checkboxSelection
+				// checkboxSelection
 				sx={{
 					border: 0,
 					'& .MuiDataGrid-columnHeaders': {
