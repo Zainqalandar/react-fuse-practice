@@ -9,6 +9,7 @@ const STARTER_PASSWORD = '068406';
 const starterUser = {
   name: 'Zain Qalandar',
   email: STARTER_EMAIL,
+  photo: '/assets/images/avatars/admin-avatar.png',
   role: 'admin',
 };
 

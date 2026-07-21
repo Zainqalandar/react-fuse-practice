@@ -20,7 +20,7 @@ const withAppProviders = (Component) => (props) => {
     >
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <Provider store={store}>
-          <StyledEngineProvider injectFirst>
+          <StyledEngineProvider enableCssLayer>
             <Component {...props} />
           </StyledEngineProvider>
         </Provider>
