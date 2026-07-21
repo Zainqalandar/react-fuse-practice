@@ -43,14 +43,18 @@ const dataSlice = createSlice({
   name: 'notificationPanel/data',
   initialState,
   reducers: {},
-  extraReducers: {
-    [dismissItem.fulfilled]: (state, action) =>
-      notificationsAdapter.removeOne(state, action.payload),
-    [dismissAll.fulfilled]: (state, action) => notificationsAdapter.removeAll(state),
-    [getNotifications.fulfilled]: (state, action) =>
-      notificationsAdapter.addMany(state, action.payload),
-    [addNotification.fulfilled]: (state, action) =>
-      notificationsAdapter.addOne(state, action.payload),
+  extraReducers: (builder) => {
+    builder
+      .addCase(dismissItem.fulfilled, (state, action) =>
+        notificationsAdapter.removeOne(state, action.payload)
+      )
+      .addCase(dismissAll.fulfilled, (state, action) => notificationsAdapter.removeAll(state))
+      .addCase(getNotifications.fulfilled, (state, action) =>
+        notificationsAdapter.addMany(state, action.payload)
+      )
+      .addCase(addNotification.fulfilled, (state, action) =>
+        notificationsAdapter.addOne(state, action.payload)
+      );
   },
 });
 

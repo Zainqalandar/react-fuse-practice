@@ -1,5 +1,7 @@
 # Developer Guide
 
+> The command and framework details in this guide predate the Vite migration. Read [Upgrade notes](UPGRADE_2026-07.md) first for the current workflow.
+
 ## Prerequisites
 
 - Node.js 16 or newer

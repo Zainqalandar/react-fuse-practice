@@ -1,5 +1,7 @@
 # Dependencies and Frameworks
 
+> Historical inventory: the detailed version table below records the pre-upgrade state. For the current React 19, MUI 9, Tailwind 4, and Vite 8 stack, see [Upgrade notes](UPGRADE_2026-07.md).
+
 This inventory is based on `package.json`, the npm v3 lockfile, installed top-level packages, and a static source/config reference scan on 2026-07-21.
 
 “Not detected” means the package name was not found in current application source or build configuration. It is a cleanup candidate, not proof that removal is safe: transitive use, generated code, CSS processing, or planned work may still matter. Remove packages in small groups and rebuild/test after each group.

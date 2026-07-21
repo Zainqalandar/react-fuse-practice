@@ -1,6 +1,6 @@
 export const msalConfig = {
     auth: {
-        clientId: process.env.REACT_APP_MICROSOFT_CLIENT_ID,
+        clientId: import.meta.env.VITE_MICROSOFT_CLIENT_ID,
         redirectUri: '/',
     },
     cache: {

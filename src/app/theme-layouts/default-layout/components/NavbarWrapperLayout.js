@@ -1,4 +1,4 @@
-import Hidden from '@mui/material/Hidden';
+import Hidden from '@fuse/core/Hidden/Hidden';
 import { styled, ThemeProvider } from '@mui/material/styles';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import { navbarCloseMobile, selectFuseNavbar } from 'app/store/fuse/navbarSlice';

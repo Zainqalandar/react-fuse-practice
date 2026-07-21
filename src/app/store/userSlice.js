@@ -96,16 +96,17 @@ const userSlice = createSlice({
   reducers: {
     userLoggedOut: (state, action) => initialState,
   },
-  extraReducers: {
-    [updateUserSettings.fulfilled]: (state, action) => action.payload,
-    [updateUserShortcuts.fulfilled]: (state, action) => action.payload,
-    [setUser.fulfilled]: (state, action) => {
+  extraReducers: (builder) => {
+    builder
+      .addCase(updateUserSettings.fulfilled, (state, action) => action.payload)
+      .addCase(updateUserShortcuts.fulfilled, (state, action) => action.payload)
+      .addCase(setUser.fulfilled, (state, action) => {
       return {
         ...state,
         ...action.payload,
         photo: action.payload.photo || '',
       };
-    },
+      });
   },
 });
 

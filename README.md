@@ -6,10 +6,10 @@ This repository is a Fuse-derived React admin starter. It currently provides a l
 
 ## Current stack
 
-- React 18 and Create React App 5, customized through `react-app-rewired`
-- React Router 6 with route-level role authorization
+- React 19.2.7 and Vite 8.1.5
+- React Router 7 with route-level role authorization
 - Redux Toolkit and React Redux
-- MUI 5, Emotion, Tailwind CSS 3, and Fuse UI components
+- MUI 9, Emotion, Tailwind CSS 4, and Fuse UI components
 - React Hook Form and Yup
 - i18next with LTR/RTL support
 - Cookie-based demo authentication

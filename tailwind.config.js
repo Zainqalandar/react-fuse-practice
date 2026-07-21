@@ -1,10 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
-const path = require('path');
+const negativeValues = (values) =>
+  Object.fromEntries(
+    Object.entries(values)
+      .filter(([key]) => key !== '0')
+      .map(([key, value]) => [`-${key}`, value.startsWith('-') ? value.slice(1) : `-${value}`])
+  );
 
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   safelist: ['pl-24', 'pl-40', 'pl-56', 'pl-72', 'pl-80'],
-  presets: [],
   darkMode: 'class', // or 'class'
   theme: {
     screens: {
@@ -12,7 +16,6 @@ module.exports = {
       md: '960px',
       lg: '1280px',
       xl: '1920px',
-      print: { raw: 'print' },
     },
     colors: ({ colors }) => ({
       inherit: colors.inherit,
@@ -1014,10 +1017,10 @@ module.exports = {
       max: 'max-content',
       fit: 'fit-content',
     }),
-    inset: (theme, { negative }) => ({
+    inset: ({ theme }) => ({
       auto: 'auto',
       ...theme('spacing'),
-      ...negative(theme('spacing')),
+      ...negativeValues(theme('spacing')),
       '1/2': '50%',
       '1/3': '33.333333%',
       '3/10': '30%',
@@ -1092,10 +1095,10 @@ module.exports = {
       disc: 'disc',
       decimal: 'decimal',
     },
-    margin: (theme, { negative }) => ({
+    margin: ({ theme }) => ({
       auto: 'auto',
       ...theme('spacing'),
-      ...negative(theme('spacing')),
+      ...negativeValues(theme('spacing')),
     }),
     maxHeight: ({ theme }) => ({
       none: 'none',
@@ -1107,7 +1110,7 @@ module.exports = {
       fit: 'fit-content',
       auto: 'auto',
     }),
-    maxWidth: (theme, { breakpoints }) => ({
+    maxWidth: ({ theme }) => ({
       none: 'none',
       ...theme('spacing'),
       full: '100%',
@@ -1115,7 +1118,7 @@ module.exports = {
       max: 'max-content',
       fit: 'fit-content',
       prose: '65ch',
-      ...breakpoints(theme('screens')),
+      ...theme('screens'),
     }),
     minHeight: ({ theme }) => ({
       auto: 'auto',
@@ -1280,9 +1283,9 @@ module.exports = {
       6: '6deg',
       12: '12deg',
     },
-    space: (theme, { negative }) => ({
+    space: ({ theme }) => ({
       ...theme('spacing'),
-      ...negative(theme('spacing')),
+      ...negativeValues(theme('spacing')),
     }),
     stroke: ({ theme }) => theme('colors'),
     strokeWidth: {
@@ -1362,9 +1365,9 @@ module.exports = {
       out: 'cubic-bezier(0, 0, 0.2, 1)',
       'in-out': 'cubic-bezier(0.4, 0, 0.2, 1)',
     },
-    translate: (theme, { negative }) => ({
+    translate: ({ theme }) => ({
       ...theme('spacing'),
-      ...negative(theme('spacing')),
+      ...negativeValues(theme('spacing')),
       '1/2': '50%',
       '1/3': '33.333333%',
       '3/10': '30%',
@@ -1476,8 +1479,6 @@ module.exports = {
     'disabled',
   ],
   plugins: [
-    // eslint-disable-next-line import/no-dynamic-require
-    require(path.resolve(__dirname, 'src/@fuse/tailwind/plugins/icon-size')),
     // Other third party and/or custom plugins
     require('@tailwindcss/typography')({ modifiers: ['sm', 'lg'] }),
     require('@tailwindcss/aspect-ratio')

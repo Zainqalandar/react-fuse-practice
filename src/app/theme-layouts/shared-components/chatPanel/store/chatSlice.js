@@ -36,10 +36,11 @@ const chatSlice = createSlice({
   reducers: {
     removeChat: (state, action) => null,
   },
-  extraReducers: {
-    [getChat.fulfilled]: (state, action) => action.payload,
-    [sendMessage.fulfilled]: (state, action) => [...state, action.payload],
-    [closeChatPanel]: (state, action) => null,
+  extraReducers: (builder) => {
+    builder
+      .addCase(getChat.fulfilled, (state, action) => action.payload)
+      .addCase(sendMessage.fulfilled, (state, action) => [...state, action.payload])
+      .addCase(closeChatPanel, (state, action) => null);
   },
 });
 
