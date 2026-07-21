@@ -1,11 +1,12 @@
 import { memo } from 'react';
 import Box from '@mui/material/Box';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 
 function FuseSplashScreen() {
   return (
     <div id="fuse-splash-screen">
       <div className="logo">
-        <img width="128" src="assets/images/logo/logo.png" alt="logo" />
+        <FuseSvgIcon size={48}>heroicons-outline:view-grid</FuseSvgIcon>
       </div>
       <Box
         id="spinner"

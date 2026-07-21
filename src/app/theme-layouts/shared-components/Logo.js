@@ -1,25 +1,13 @@
-import { styled } from '@mui/material/styles';
-
-const Root = styled('div')(({ theme }) => ({
-  '& > .logo-icon': {
-    transition: theme.transitions.create(['width', 'height'], {
-      duration: theme.transitions.duration.shortest,
-      easing: theme.transitions.easing.easeInOut,
-    }),
-  },
-  '& > .badge': {
-    transition: theme.transitions.create('opacity', {
-      duration: theme.transitions.duration.shortest,
-      easing: theme.transitions.easing.easeInOut,
-    }),
-  },
-}));
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 
 function Logo() {
   return (
-    <Root className="flex items-center">
-      <img className="logo-icon" width="55" src="assets/images/logo/logo.png" alt="logo" />
-    </Root>
+    <Box className="flex items-center gap-10" aria-label="Admin Starter">
+      <FuseSvgIcon size={28}>heroicons-outline:view-grid</FuseSvgIcon>
+      <Typography className="text-lg font-bold">Admin Starter</Typography>
+    </Box>
   );
 }
 

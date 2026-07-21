@@ -1,4 +1,3 @@
-// import '@mock-api';
 import BrowserRouter from '@fuse/core/BrowserRouter';
 import FuseLayout from '@fuse/core/FuseLayout';
 import FuseTheme from '@fuse/core/FuseTheme';
@@ -13,19 +12,8 @@ import themeLayouts from 'app/theme-layouts/themeLayouts';
 import {selectMainTheme} from 'app/store/fuse/settingsSlice';
 import FuseAuthorization from '@fuse/core/FuseAuthorization';
 import settingsConfig from 'app/configs/settingsConfig';
-// import {PublicClientApplication, EventType} from '@azure/msal-browser';
-// import { MsalProvider } from '@azure/msal-react';
-// import {msalConfig} from 'src/authConfig';
 import withAppProviders from './withAppProviders';
 import {AuthProvider} from './auth/AuthContext';
-import JwtService from './auth/services/jwtService';
-// import axios from 'axios';
-/**
- * Axios HTTP Request defaults
- */
-// axios.defaults.baseURL = "";
-// axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-// axios.defaults.headers.common['Content-Type'] = 'application/x-www-form-urlencoded';
 
 const emotionCacheOptions = {
     rtl: {
@@ -41,23 +29,6 @@ const emotionCacheOptions = {
     };
     
     const App = () => {
-    // const msalInstance = new PublicClientApplication(msalConfig);
-    // const handleCredentialResponse = async (response) => {
-    //     JwtService.handleGoogleRedirect(response.credential);
-    // };
-    // useEffect(() => {
-    //     window.google?.accounts.id.initialize({
-    //         client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
-    //         callback: handleCredentialResponse,
-    //     });
-    // }, []);
-
-    // msalInstance.addEventCallback((event) => {
-    //     if (event.eventType === EventType.LOGIN_SUCCESS) {
-    //         msalInstance.setActiveAccount(event.payload.account);
-    //     }
-    // });
-
     const user = useSelector(selectUser);
     const langDirection = useSelector(selectCurrentLanguageDirection);
     const mainTheme = useSelector(selectMainTheme);

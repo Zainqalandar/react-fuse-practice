@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import FuseSplashScreen from '@fuse/core/FuseSplashScreen';
 import { logoutUser, setUser } from 'app/store/userSlice';
 import jwtService from './services/jwtService';
-import useSnackbarMessage from '../main/hooks/useSnackbarMessage';
 
 const AuthContext = React.createContext();
 
@@ -12,71 +11,40 @@ function AuthProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(undefined);
   const [waitAuthCheck, setWaitAuthCheck] = useState(true);
   const dispatch = useDispatch();
-  const setSnackbarMessage = useSnackbarMessage();
 
   useEffect(() => {
-    jwtService.on('onAutoLogin', () => {
-      jwtService.getCurrentUserData().then((user) => {
-        success(user);
+    const success = (user) => {
+      dispatch(setUser(user)).finally(() => {
+        setWaitAuthCheck(false);
+        setIsAuthenticated(true);
       });
-      /**
-       * Sign in and retrieve user data with stored token
-       */
-    });
-    jwtService.on('onLogin', (user) => {
-      success(user, 'Signed in');
-    });
+    };
 
-    jwtService.on('onUserUpdated', (user) => {
-      success(user, 'Profile Updated');
-    });
-    jwtService.on('onSSOUserCreated', () => {
-      setSnackbarMessage('User successfully created. You can sign in now');
-    });
+    const pass = () => {
+      setWaitAuthCheck(false);
+      setIsAuthenticated(false);
+    };
 
-    jwtService.on('onLogout', () => {
-      pass('Signed out');
+    const logout = () => {
       dispatch(logoutUser());
-    });
-
-    jwtService.on('onAutoLogout', (message) => {
-      pass(message);
-      dispatch(logoutUser());
-    });
-
-    jwtService.on('onNoAccessToken', () => {
       pass();
-    });
+    };
+
+    jwtService.on('onAutoLogin', success);
+    jwtService.on('onLogin', success);
+    jwtService.on('onUserUpdated', success);
+    jwtService.on('onLogout', logout);
+    jwtService.on('onNoAccessToken', pass);
 
     jwtService.init();
 
-    function success(user, message) {
-      console.log("In sucess Function",user);
-      if (message) {
-        setSnackbarMessage(message);
-      }
-      Promise.all([
-        // we haven't added the roles yet so by default its admin for now.
-        // tempComment:
-        dispatch(setUser({ ...user, role: user.role })),
-        // You can receive data in here before app initialization
-      ])
-        .then((values) => {
-          setWaitAuthCheck(false);
-          setIsAuthenticated(true);
-        })
-        .catch((err) => {
-          console.log(err, 'error loading');
-        });
-    }
-
-    function pass(message) {
-      if (message) {
-        setSnackbarMessage(message);
-      }
-      setWaitAuthCheck(false);
-      setIsAuthenticated(false);
-    }
+    return () => {
+      jwtService.removeListener('onAutoLogin', success);
+      jwtService.removeListener('onLogin', success);
+      jwtService.removeListener('onUserUpdated', success);
+      jwtService.removeListener('onLogout', logout);
+      jwtService.removeListener('onNoAccessToken', pass);
+    };
   }, [dispatch]);
 
   return waitAuthCheck ? (

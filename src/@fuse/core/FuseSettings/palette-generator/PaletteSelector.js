@@ -83,10 +83,13 @@ function PaletteSelector(props) {
 
   return (
     <>
-      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/interactive-supports-focus */}
-      <div onClick={handleOpenDialog} role="button">
+      <button
+        type="button"
+        onClick={handleOpenDialog}
+        style={{ all: 'unset', cursor: 'pointer', display: 'block' }}
+      >
         {props.trigger}
-      </div>
+      </button>
       <Dialog
         container={document.body}
         open={openDialog}
