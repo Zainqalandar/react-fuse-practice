@@ -2,8 +2,8 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -44,7 +44,7 @@ function UserMenu(props) {
         )}
       </Button>
 
-      <Menu
+      <Popover
         open={Boolean(userMenu)}
         anchorEl={userMenu}
         onClose={userMenuClose}
@@ -71,7 +71,7 @@ function UserMenu(props) {
           </ListItemIcon>
           <ListItemText primary="Sign out" />
         </MenuItem>
-      </Menu>
+      </Popover>
     </>
   );
 }

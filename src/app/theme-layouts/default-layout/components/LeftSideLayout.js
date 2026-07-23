@@ -5,7 +5,7 @@ import Navigation from "app/theme-layouts/shared-components/Navigation";
 import NavbarToggleButton from "app/theme-layouts/shared-components/NavbarToggleButton";
 import UserNavbarHeader from "app/theme-layouts/shared-components/UserNavbarHeader";
 import {styled} from "@mui/material/styles";
-import Hidden from '@fuse/core/Hidden/Hidden';
+import Hidden from '@mui/material/Hidden';
 
 const StyledContent = styled(FuseScrollbars)(({theme}) => ({
     overscrollBehavior: 'contain',

@@ -29,12 +29,11 @@ const contactsSlice = createSlice({
       state.selectedContactId = null;
     },
   },
-  extraReducers: (builder) => {
-    builder
-      .addCase(getContacts.fulfilled, contactsAdapter.setAll)
-      .addCase(closeChatPanel, (state, action) => {
-        state.selectedContactId = null;
-      });
+  extraReducers: {
+    [getContacts.fulfilled]: contactsAdapter.setAll,
+    [closeChatPanel]: (state, action) => {
+      state.selectedContactId = null;
+    },
   },
 });
 

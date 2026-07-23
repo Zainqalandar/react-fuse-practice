@@ -18,8 +18,8 @@ export const { selectAll: selectChats, selectById: selectChatById } = chatsAdapt
 const chatsSlice = createSlice({
   name: 'chatPanel/chats',
   initialState: chatsAdapter.getInitialState(),
-  extraReducers: (builder) => {
-    builder.addCase(getChats.fulfilled, chatsAdapter.setAll);
+  extraReducers: {
+    [getChats.fulfilled]: chatsAdapter.setAll,
   },
 });
 

@@ -20,10 +20,9 @@ export const updateUserData = createAsyncThunk('chatPanel/user/updateUserData', 
 const userSlice = createSlice({
   name: 'chatPanel/user',
   initialState: null,
-  extraReducers: (builder) => {
-    builder
-      .addCase(getUserData.fulfilled, (state, action) => action.payload)
-      .addCase(updateUserData.fulfilled, (state, action) => action.payload);
+  extraReducers: {
+    [getUserData.fulfilled]: (state, action) => action.payload,
+    [updateUserData.fulfilled]: (state, action) => action.payload,
   },
 });
 

@@ -1,5 +1,5 @@
 import Drawer from '@mui/material/Drawer';
-import Hidden from '@fuse/core/Hidden/Hidden';
+import Hidden from '@mui/material/Hidden';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import clsx from 'clsx';
 import { forwardRef, useCallback, useEffect, useImperativeHandle, useState } from 'react';

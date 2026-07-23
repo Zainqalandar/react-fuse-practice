@@ -32,7 +32,7 @@ function useDeepCompareMemoize(value) {
 }
 
 function useDeepCompareEffect(callback, dependencies) {
-  if (import.meta.env.DEV) {
+  if (process.env.NODE_ENV !== 'production') {
     checkDeps(dependencies);
   }
   // eslint-disable-next-line

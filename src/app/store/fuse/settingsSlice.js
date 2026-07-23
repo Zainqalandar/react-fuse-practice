@@ -96,8 +96,8 @@ const settingsSlice = createSlice({
       };
     },
   },
-  extraReducers: (builder) => {
-    builder.addCase(setDefaultSettings.fulfilled, (state, action) => action.payload);
+  extraReducers: {
+    [setDefaultSettings.fulfilled]: (state, action) => action.payload,
   },
 });
 

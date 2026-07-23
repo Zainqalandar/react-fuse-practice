@@ -8,3 +8,5 @@
 @import 'tables.css';
 
 @import 'prism.css';
+
+@tailwind components;
