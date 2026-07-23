@@ -1,6 +1,4 @@
-/* Keep MUI below Tailwind utilities so existing Fuse class names can style MUI components. */
-@layer theme, base, mui, components, utilities;
-@import "tailwindcss" important;
+@import "tailwindcss";
 @config "../../tailwind.config.js";
 
 /**
